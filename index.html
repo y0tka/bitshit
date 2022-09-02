@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta Content-Security-Policy: script-src 'unsafe-eval'>
+	<title>bitshit</title>
+	<style>
+		body {
+			padding: 20px;
+			margin: 0;
+		}
+
+		.input {
+			background-color: aquamarine;
+			width: 400px;
+			height: 200px;
+			position: absolute;
+			left: 440px;
+			top: 20px;
+			margin: 0px;
+			white-space: pre-wrap;
+		}
+
+		.perfreport {
+			position: absolute;
+			top: 260px;
+			left: 440px;
+		}
+
+		.type {
+			position: absolute;
+			top: 310px;
+			left: 440px;
+		}
+	</style>
+</head>
+
+<body>
+	<main>
+	</main>
+	<pre class="input" role="textbox" contenteditable>x==y</pre>
+	<p class="perfreport">performance report</p>
+	<form class="type">
+		<input type="radio" id="oneBit" name="type" value="255" />
+		<label for="oneBit">oneBit</label>
+		<input type="radio" id="gradient" name="type" value="1" />
+		<label for="gradient">gradient</label>
+	</form>
+</body>
+<script src="p5.min.js"></script>
+<script src="sketch.js"></script>
+
+</html>
