@@ -1,1 +1,3 @@
 .jshintrc
+# Added by cargo
+target

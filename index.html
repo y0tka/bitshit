@@ -4,7 +4,6 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta Content-Security-Policy: script-src 'unsafe-eval'>
 	<title>bitshit</title>
 	<style>
 		body {
@@ -35,12 +34,19 @@
 			left: 440px;
 		}
 	</style>
+	<script src='./pkg/bitshit_wasm.js'></script>
+	<script type="module">
+		async function run() {
+        await wasm_bindgen('./pkg/bitshit_wasm_bg.wasm');
+    }
+    run();
+	</script>
 </head>
 
 <body>
 	<main>
 	</main>
-	<pre class="input" role="textbox" contenteditable>x==y</pre>
+	<pre class="input" role="textbox" contenteditable>math::sin(x)*math::cos(y)*255</pre>
 	<p class="perfreport">performance report</p>
 	<form class="type">
 		<input type="radio" id="oneBit" name="type" value="255" checked />
@@ -49,7 +55,7 @@
 		<label for="gradient">gradient</label>
 	</form>
 </body>
-<script src="p5.min.js"></script>
-<script src="sketch.js"></script>
+<script src="assets/p5.min.js"></script>
+<script src="assets/sketch.js"></script>
 
 </html>

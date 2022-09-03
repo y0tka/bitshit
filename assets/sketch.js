@@ -4,6 +4,7 @@ let pixels = [];
 const funcInput = document.querySelector(".input");
 const perfreport = document.querySelector(".perfreport");
 const selectedType = document.querySelector('input[name="type"]:checked');
+const {	get_shader_value } = wasm_bindgen;
 
 const pixelSize = 5;
 const canvasSize = 400;
@@ -38,8 +39,8 @@ function applyShader() {
 	const type = selectedType.value;
 	const t0 = performance.now();
 	pixels.forEach(pixel => {
-		pixel.color = getShaderValue(pixel.x, pixel.y, shader);
-		pixel.color *= type;
+		pixel.color = get_shader_value(pixel.x, pixel.y, shader);
+		// pixel.color *= type;
 		renderPixel(pixel);
 	});
 
@@ -47,9 +48,6 @@ function applyShader() {
 	perfreport.innerText = `Shader rendered in ${t1-t0} ms`;
 }
 
-function getShaderValue(x, y, shader) {
-	return eval(shader.replaceAll("x", x).replaceAll("y", y));
-}
 
 function renderPixel(pixel) {
 	fill(pixel.color);
